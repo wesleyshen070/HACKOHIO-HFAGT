@@ -13,12 +13,8 @@ async function chartIt() {
             datasets: [{
                 label: 'Prescriber\'s Aggregated TRx',
                 data: yVals,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)'
-                ],
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)' ,
                 borderWidth: 1
             }]
         },
@@ -37,11 +33,13 @@ async function getData() {
     
     const table = data.split('\r\n').slice(1);
     
+    // shorten is to make sure it doesnt run too many times
+    // the # of y-values is limited by shorten
     var shorten = 0;
     
     table.forEach (row =>{  
         shorten++;
-        if(shorten >= 99)
+        if(shorten >= 49)
         return;
         
         const columns = row.split(',');
