@@ -1,5 +1,6 @@
 const xlabels = [];
-const yVals = [];
+const yTRxVals = [];
+const yNRxVals = [];
 
 chartIt();
 
@@ -10,13 +11,22 @@ async function chartIt() {
         type: 'bar',
         data: {
             labels: xlabels,
-            datasets: [{
-                label: 'Prescriber\'s Aggregated TRx',
-                data: yVals,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)' ,
-                borderWidth: 1
-            }]
+            datasets: [
+                {
+                    label: 'Prescriber\'s Aggregated TRx',
+                    data: yTRxVals,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)' ,
+                    borderWidth: 1
+                },
+                {
+                    label: 'Prescriber\'s Aggregated NRx',
+                    data: yNRxVals,
+                    backgroundColor: 'rgba(0, 99, 132, 0.2)',
+                    borderColor: 'rgba(0, 99, 132, 1)' ,
+                    borderWidth: 1
+                }
+            ]
         },
         options: {
             scales: {
@@ -46,12 +56,17 @@ async function getData() {
         const doctor = columns[1] + " " + columns[2];
         xlabels.push(doctor);
         
-        RTxTotal = 0;
+        NRxTotal = 0;
+        TRxTotal = 0;
+        for(let i = 5; i < 11; i++){
+            NRxTotal += parseInt(columns[i]);
+        }
         for(let i = 11; i < 17; i++){
-            RTxTotal += parseInt(columns[i]);
+            TRxTotal += parseInt(columns[i]);
         }
         
-        yVals.push(RTxTotal);
-        console.log(doctor, RTxTotal);
+        yNRxVals.push(NRxTotal);
+        yTRxVals.push(TRxTotal);
+        console.log(doctor, TRxTotal, NRxTotal);
     });
 }
