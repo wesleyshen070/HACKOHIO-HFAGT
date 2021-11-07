@@ -49,13 +49,14 @@ async function getData(numDisplay) {
     const data = await response.text();
     
     const table = data.split('\r\n').slice(1);
-    
+
     // # of different drugs at the moment
     var iterations = 0;
     
     table.forEach (row =>{  
-        // comment in to artifically shorten
+        currentIndex++;
         iterations++;
+
         if(iterations >= numDisplay)
             return;
 
@@ -79,7 +80,6 @@ async function getData(numDisplay) {
         drugName.push(columns[4]);
         var uniqueDrugs = new Set(drugName);
         drugName = Array.from(uniqueDrugs);
-        console.log(drugName);
         
         yNRxVals.push(NRxTotal);
         yTRxVals.push(TRxTotal);
@@ -91,7 +91,15 @@ function getInputValue(){
     var inputVal = document.getElementById("myInput").value;
     
     // Displaying the value
-    myChart.clear();
+    myChart.destroy();
+    clearArrays();
     chartIt(inputVal);
     myChart.update();
+    console.log(inputVal);
+}
+
+function clearArrays(){
+    xlabels.length = 0;
+    yTRxVals.length = 0;
+    yNRxVals.length = 0;
 }
