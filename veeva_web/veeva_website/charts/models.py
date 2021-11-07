@@ -31,3 +31,5 @@ class Sale(models.Model):
             pass
         self.total = price * self.quantity
         super().save(*args, **kwargs)
+
+
