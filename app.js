@@ -6,14 +6,14 @@ var myChart;
 var defaultDisplay = 50;
 var currentIndex = defaultDisplay;
 
-var topDoctorArray = [];
-var doctorState = [];
-var numTopDoctors = 10;
-var dict = new Object();
+var defaultDrug = 'Cholecap';
+var defaultFile = 'Cholecap_drug.csv';
+
+getInputDrugTop();
 
 chartIt(defaultDisplay);
 
-displayDoctors(numTopDoctors);
+displayDoctors(numTopDoctors)
 
 async function chartIt(numDisplay) {
     await getData(numDisplay);
@@ -69,12 +69,6 @@ async function getData(numDisplay) {
         const doctor = columns[1] + " " + columns[2];
         xlabels.push(doctor);
 
-        if(iterations <= numTopDoctors){
-            topDoctorArray.push(doctor);
-            doctorState.push(columns[3]);
-            console.log(topDoctorArray[iterations]);
-        }
-
         if(columns[1]=='undefined')
             return;
         
@@ -108,14 +102,6 @@ function destroyChart() {
     myChart.destroy();
 }
 
-function getDoctorInputValue() {
-    var inputVal = document.getElementById("myInput").value;
+async function getInputDrugTop() {
 
-    
-}
-
-function displayDoctors(numDoctors) {
-    for(let i = 0; i < numTopDoctors; i++){
-        console.log(topDoctorArray[i], doctorState[i]);
-    }
 }

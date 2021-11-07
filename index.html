@@ -20,22 +20,19 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
 
-  <helv>Enter the amount of top prescribers you would like to see graphically.</helv>
-  <input type="text" placeholder="Type a number..." id="myInput">
-  <button type="button" onclick="getInputValue();">Enter</button>
+  <label for="drug-names-top">Choose a drug:</label>
+  <select name="drug-names-top" id="drugInputTop">
+    <option value="Cholecap">Cholecap</option>
+    <option value="Nasalclear">NasalClear</option>
+    <option value="Nova-itch">Nova-Itch</option>
+    <option value="Zap-a-Pain">Zap-A-Pain</option>
+  </select>
   
-  <canvas id = "chart" width = "400" height = "150"></canvas>
-  <script src="app.js" type = "text/javascript"></script>
-</div>
+  <button type="button" onclick="getInputDrugTop();">Enter</button
 
-<div>
-  <helv>
-    Enter the number of top prescribers you would like to have the names and states of.
-    (By default, 10 are displayed.)
-  </helv>
-  <input type="text" placeholder="Type a number..." id="myNumDoctorInput">
-  <button type="button" onclick="getDoctorInputValue();">Enter</button>
-  <p id="arrPrint"></p>
+  <b>Enter the amount of top prescribers you would like to see graphically.</b>
+  <input type="text" placeholder="Type a number..." id="myInput">
+  <button type="button" onclick="setInputValue();">Enter</button>
   
   <canvas id = "chart" width = "400" height = "150"></canvas>
   <script src="app.js" type = "text/javascript"></script>
