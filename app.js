@@ -55,10 +55,9 @@ async function getData(numDisplay) {
     
     table.forEach (row =>{  
         currentIndex++;
-        iterations++;
-
         if(iterations >= numDisplay)
             return;
+        iterations++;
 
         const columns = row.split(',');
         const doctor = columns[1] + " " + columns[2];
