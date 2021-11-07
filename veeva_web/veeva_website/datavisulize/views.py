@@ -19,14 +19,6 @@ def upload_file_view(request):
         obj = Csv.objects.get(activated=False)
         with open(obj.file_name.path, 'r') as f:
             reader = csv.reader(f)
-
-            for i, row in enumerate(reader):
-                if i == 0:
-                    pass
-                else:
-                    print(row)
-                    print(type(row))
-            print(obj.file_name.path)
             obj.activated = True
             obj.save()
             main.seperating_file(obj.file_name.path, 'Cholecap')
