@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <title>Double Graph Test</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="myChart" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Bren Clarridge', 'Catharine Latty', 'CHarity Wernher', 'Trevar Orrocks', 'Marie-ann Degoy'],
+        datasets: [
+          {
+            label: '# of Total Prescriptions',
+            data: [389, 803, 618, 441, 749],
+            backgroundColor: [
+              'rgba(0, 0, 255, 0.5)'
+            ],
+            borderWidth: 1
+          },
+          {
+            label: '# of New Prescriptions',
+            data: [67, 28, 62, 73, 59],
+            backgroundColor: [
+              'rgba(255, 0, 0, 0.5)'
+            ],
+            borderWidth: 1
+          }
+        ]
+    },
+    options: {
+    responsive: true,
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Doctors',
+          color: '#0',
+          font: {
+            family: 'Calibri',
+            size: 20,
+            style: 'bold',
+            lineHeight: 1.2,
+          },
+          padding: {top: 20, left: 0, right: 0, bottom: 0}
+        }
+      },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Number of Total and New Prescriptions Sold',
+          color: '#0',
+          font: {
+            family: 'Calibri',
+            size: 20,
+            style: 'normal',
+            lineHeight: 1.2,
+          },
+          padding: {top: 30, left: 0, right: 0, bottom: 0}
+        }
+      }
+    }
+  },
+});
+</script>
+  </body>
+</html>

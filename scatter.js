@@ -1,4 +1,5 @@
-const xlabels = [];
+
+let xlabels = [];
 const yTRxVals = [];
 const yNRxVals = [];
 
@@ -8,30 +9,37 @@ async function chartIt() {
     await getData();
     const ctx = document.getElementById('chart').getContext('2d');
     const myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'scatter',
         data: {
-            labels: xlabels,
-            datasets: [
-                {
-                    label: 'Prescriber\'s Aggregated TRx',
-                    data: yTRxVals,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)' ,
-                    borderWidth: 1
-                },
-                {
-                    label: 'Prescriber\'s Aggregated NRx',
-                    data: yNRxVals,
-                    backgroundColor: 'rgba(0, 99, 132, 0.2)',
-                    borderColor: 'rgba(0, 99, 132, 1)' ,
-                    borderWidth: 1
-                }
-            ]
+            datasets: [{
+                label: 'Total Prescriptions',
+                data: [{
+                    x: xlabels,
+                    y: yTRxVals
+                }],
+                backgroundColor: [
+                    'rgba(255, 0, 0, 1)',
+                ],
+                borderWidth: 1
+            },
+            {
+                label: 'New Prescriptions',
+                data: [{
+                    x: xlabels,
+                    y: yNRxVals
+                }],
+                backgroundColor: [
+                    'rgba(0, 0, 255, 1)',
+                ],
+                borderWidth: 1
+            }  
+        ]
         },
         options: {
             scales: {
-                y: {
-                    beginAtZero: true
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
                 }
             }
         }
@@ -41,7 +49,7 @@ async function getData() {
     const response = await fetch('Prescriber_Data.csv');
     const data = await response.text();
     
-    const table = data.split('\r\n').slice(1);
+    const table = data.split('\n').slice(1);
     
     // shorten is to make sure it doesnt run too many times
     // the # of y-values is limited by shorten
@@ -52,10 +60,9 @@ async function getData() {
         if(shorten >= 49)
         return;
         
+        month = 0;
+        month++
         const columns = row.split(',');
-        const doctor = columns[1] + " " + columns[2];
-        xlabels.push(doctor);
-        
         NRxTotal = 0;
         TRxTotal = 0;
         for(let i = 5; i < 11; i++){
@@ -67,6 +74,6 @@ async function getData() {
         
         yNRxVals.push(NRxTotal);
         yTRxVals.push(TRxTotal);
-        console.log(doctor, TRxTotal, NRxTotal);
+        console.log(month, TRxTotal, NRxTotal)
     });
 }

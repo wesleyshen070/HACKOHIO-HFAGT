@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="myChart" width="400" height="150"></canvas>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Total Prescriptions',
+            data: [{
+                x: 1,
+                y: 104
+            },  {
+                x: 2,
+                y: 126
+            },  {
+                x: 3,
+                y: 20
+            },  {
+                x: 4,
+                y: 9
+            },  {
+                x: 5,
+                y: 11
+            },  {
+                x: 6,
+                y: 119
+            }],
+            backgroundColor: [
+                'rgba(255, 0, 0, 1)',
+            ],
+            borderWidth: 1
+        },
+        {
+            label: 'New Prescriptions',
+            data: [{
+                x: 1,
+                y: 11
+            },  {
+                x: 2,
+                y: 9
+            },  {
+                x: 3,
+                y: 9
+            }, {
+                x: 4,
+                y: 14
+            },  {
+                x: 5,
+                y: 16
+            },  {
+                x: 6,
+                y: 8
+            }],
+            backgroundColor: [
+                'rgba(0, 0, 255, 1)',
+            ],
+            borderWidth: 1
+        }
+    ]
+    },
+    options: {
+        scales: {
+            x: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+  </body>
+</html>
