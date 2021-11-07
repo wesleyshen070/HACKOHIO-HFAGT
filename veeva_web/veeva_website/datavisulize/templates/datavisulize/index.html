@@ -1,10 +1,46 @@
 {% extends 'datavisulize/base.html'%}
-
+{% load static %}
 {% block title %}
 main page
 {% endblock title %}
 
 {% block content %}
+<div class="fixed-header">
+    <div class="container">
+      <nav>
+        <a href="#">Veeva Visualization</a>
+      </nav>
+    </div>
+  </div>
+  <div>
+  <!-- THIS IS THE FIRST CHART -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
+
+  <helv>Enter the amount of top prescribers you would like to see.</helv>
+  <input type="text" placeholder="Type a number..." id="myInput">
+  <button type="button" onclick="getInputValue();">Enter</button>
+
+  <canvas id = "chart" width = "400" height = "150"></canvas>
+  <script src="{% static 'app.js'%}" type = "text/javascript"></script>
+</div>
+
+<div>
+  <!-- THIS IS THE SECOND CHART -->
+
+  <label for="drug-names">Choose a drug:</label>
+  <select name="drug-names" id="drugInput">
+    <option value="cholecap">Cholecap</option>
+    <option value="nasalclear">NasalClear</option>
+    <option value="nova-itch">Nova-Itch</option>
+    <option value="zap-a-pain">Zap-A-Pain</option>
+  </select>
+
+  <button type="button" onclick="getInputDrugValue();">Enter</button>
+
+  <canvas id = "chartMonth" width = "400" height = "150"></canvas>
+  <script src="{% static 'task3.js'%}" type = "text/javascript"></script>
+</div>
 <form action="" method="POST" class="ui form" enctype="multipart/form-data">
     {% csrf_token %}
     {{form}}

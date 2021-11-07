@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1cdbb67-1ed0-4738-b785-ebee0e8433ed" name="Default Changelist" comment="" />
+    <list default="true" id="d1cdbb67-1ed0-4738-b785-ebee0e8433ed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/veeva_web/veeva_website/datavisulize/static/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/veeva_web/veeva_website/datavisulize/static/task3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/HACKOHIO-HFAGT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HACKOHIO-HFAGT.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/media/csvs/Prescriber_Data.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/media/csvs/Prescriber_Data_3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/media/csvs/Prescriber_Data_FTLgFBd.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/media/csvs/Prescriber_Data_Gp0MYUz.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/media/csvs/Prescriber_Data_MeOKsMk.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/media/csvs/Prescriber_Data_NvmK64p.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/media/csvs/Prescriber_Data_TtxfuGd.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/media/csvs/Prescriber_Data_rjo4gQy.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/veeva_website/datavisulize/templates/datavisulize/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/veeva_web/veeva_website/datavisulize/templates/datavisulize/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/veeva_website/datavisulize/templates/datavisulize/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/veeva_web/veeva_website/datavisulize/templates/datavisulize/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/veeva_website/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/veeva_web/veeva_website/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veeva_web/veeva_website/veeva_website/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/veeva_web/veeva_website/veeva_website/urls.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +37,45 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/veeva_web/static" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web\static" />
+      <recent name="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web\media" />
+      <recent name="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web\veeva_website\datavisulize\templates\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web\veeva_website\datavisulize\static" />
+      <recent name="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web\veeva_website\datavisulize" />
+      <recent name="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web\static" />
+      <recent name="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web\media" />
+      <recent name="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="HACKOHIO-HFAGT" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\marya\PycharmProjects\HACKOHIO-HFAGT\veeva_web\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
