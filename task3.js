@@ -2,8 +2,8 @@ const months = ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6"
 
 var monthChart;
 var numPrescribers = 0;
-var currentDrug = 'cholecap';
-var drugAddress = '/cholecap.csv';
+var currentDrug = 'Cholecap';
+var drugAddress = '/Cholecap_drug.csv';
 var indexArray = 0;
 var allMonths = [0,0,0,0,0,0];
 
@@ -12,6 +12,8 @@ monthChartIt(currentDrug);
 async function monthChartIt(fileNameVar) {
     await getDrugData(fileNameVar);
     
+    console.log(allMonths);
+
     const ctx1 = document.getElementById('chartMonth').getContext('2d');
     monthChart = new Chart(ctx1, {
         type: 'line',
@@ -40,11 +42,11 @@ async function monthChartIt(fileNameVar) {
 
 async function getDrugData(drugType) {
     currentDrug = drugType;
-    drugAddress = "/" + drugType + ".csv";
+    drugAddress = "/" + drugType + "_drug.csv";
     const response = await fetch(drugAddress);
     const data = await response.text();
     
-    const table = data.split('\r\n').slice(1);
+    const table = data.split('\r\n').slice(1, -1);
     
     // # of different drugs at the moment
     
@@ -52,11 +54,10 @@ async function getDrugData(drugType) {
         
         const columns = row.split(',');
         
-        if(columns[1]=='undefined')
-        return;
-        
         for(let i = 11; i < 17; i++){
-            allMonths[i-11] += parseInt(columns[i]);
+            if(columns[i]!="NaN")
+                allMonths[i-11] += parseInt(columns[i]);
+            console.log(allMonths[i-11]);
         }
     });
 }

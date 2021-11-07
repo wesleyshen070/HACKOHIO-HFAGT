@@ -51,7 +51,7 @@ async function chartIt(numDisplay) {
 }
 
 async function getData(numDisplay) {
-    const response = await fetch('Prescriber_Data.csv');
+    const response = await fetch('Nasalclear_drug.csv');
     const data = await response.text();
     
     const table = data.split('\r\n').slice(1);
@@ -83,9 +83,7 @@ async function getData(numDisplay) {
         for(let i = 5; i < 11; i++){
             NRxTotal += parseInt(columns[i]);
         }
-        for(let i = 11; i < 17; i++){
-            TRxTotal += parseInt(columns[i]);
-        }
+        TRxTotal = parseInt(columns[17]);
         
         yNRxVals.push(NRxTotal);
         yTRxVals.push(TRxTotal);
