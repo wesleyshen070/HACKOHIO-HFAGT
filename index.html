@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch and Graph CSV</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetch and Graph CSV</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="fixed-header">
+    <div class="container">
+      <nav>
+        <a href="#">Veeva Visualization</a>
+      </nav>
+    </div>
+  </div>
+  <div>
+  <!-- THIS IS THE FIRST CHART -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
 
-    <canvas id = "chart" width = "400" height = "150"></canvas>
-    <script src="app.js" type = "text/javascript"></script>
-  </body>
+  <label for="drug-names-top">Choose a drug:</label>
+  <select name="drug-names-top" id="drugInputTop">
+    <option value="Cholecap">Cholecap</option>
+    <option value="Nasalclear">NasalClear</option>
+    <option value="Nova-itch">Nova-Itch</option>
+    <option value="Zap-a-Pain">Zap-A-Pain</option>
+  </select>
+  
+  <button type="button" onclick="getInputDrugTop();">Enter</button
+
+  <b>Enter the amount of top prescribers you would like to see graphically.</b>
+  <input type="text" placeholder="Type a number..." id="myInput">
+  <button type="button" onclick="setInputValue();">Enter</button>
+  
+  <canvas id = "chart" width = "400" height = "150"></canvas>
+  <script src="app.js" type = "text/javascript"></script>
+</div>
+
+<div>
+  <!-- THIS IS THE SECOND CHART -->
+
+  <label for="drug-names">Choose a drug:</label>
+  <select name="drug-names" id="drugInput">
+    <option value="Cholecap">Cholecap</option>
+    <option value="Nasalclear">NasalClear</option>
+    <option value="Nova-itch">Nova-Itch</option>
+    <option value="Zap-a-Pain">Zap-A-Pain</option>
+  </select>
+  
+  <button type="button" onclick="getInputDrugValue();">Enter</button>
+  
+  <canvas id = "chartMonth" width = "400" height = "150"></canvas>
+  <script src="task3.js" type = "text/javascript"></script>
+</div>
+</body>
 </html>
