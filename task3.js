@@ -3,6 +3,7 @@ const months = ["Month 1", "Month 2", "Month 3", "Month 4", "Month 5", "Month 6"
 var monthChart;
 var numPrescribers = 0;
 var currentDrug = 'cholecap';
+var drugAddress = '/cholecap.csv';
 var indexArray = 0;
 var allMonths = [0,0,0,0,0,0];
 
@@ -27,6 +28,14 @@ async function monthChartIt(fileNameVar) {
             ]
         },
         options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 4000, // minimum value
+                    }
+                }]
+        
+            },
             plugins: {
                 legend: {
                     display: false,
@@ -38,8 +47,9 @@ async function monthChartIt(fileNameVar) {
 }
 
 async function getDrugData(drugType) {
-    currentDrug = "/" + drugType + ".csv";
-    const response = await fetch(currentDrug);
+    currentDrug = drugType;
+    drugAddress = "/" + drugType + ".csv";
+    const response = await fetch(drugAddress);
     const data = await response.text();
     
     const table = data.split('\r\n').slice(1);
@@ -51,7 +61,7 @@ async function getDrugData(drugType) {
         const columns = row.split(',');
         
         if(columns[1]=='undefined')
-            return;
+        return;
         
         for(let i = 11; i < 17; i++){
             allMonths[i-11] += parseInt(columns[i]);
