@@ -14,7 +14,7 @@ async function monthChartIt(fileNameVar) {
     
     const ctx1 = document.getElementById('chartMonth').getContext('2d');
     monthChart = new Chart(ctx1, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: months,
             datasets: [
@@ -42,7 +42,7 @@ async function monthChartIt(fileNameVar) {
                 },
             }
             
-        }
+        },
     });
 }
 
