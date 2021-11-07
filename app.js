@@ -1,6 +1,15 @@
 const xlabels = [];
 const yTRxVals = [];
 const yNRxVals = [];
+
+const Nmonth1 = [];
+const Nmonth2 = [];
+const Nmonth3 = [];
+const Nmonth4 = [];
+const Nmonth5 = [];
+const Nmonth6 = [];
+
+
 var myChart;
 var drugName = [];
 var numPrescribers = 0;
@@ -18,6 +27,13 @@ async function chartIt(numDisplay) {
         data: {
             labels: xlabels,
             datasets: [
+                {
+                    label: 'Prescriber\'s Aggregated TRx',
+                    data: Nmonth1,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)' ,
+                    borderWidth: 1
+                },
                 {
                     label: 'Prescriber\'s Aggregated TRx',
                     data: yTRxVals,

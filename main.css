@@ -24,6 +24,11 @@ body{
 nav a{
 	color: #fff;
 	text-decoration: none;
+	font-family: 'Helvetica', 'Arial', sans-serif;
 	margin-top: 7px;
 	display: inline-block;
+}
+
+.helv{
+	font-family: 'Helvetica', 'Arial', sans-serif;
 }
