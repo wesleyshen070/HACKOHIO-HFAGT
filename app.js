@@ -91,14 +91,14 @@ function getInputValue(){
     var inputVal = document.getElementById("myInput").value;
     
     // Displaying the value
-    myChart.destroy();
-    clearArrays();
+    resetGraph();
     chartIt(inputVal);
     myChart.update();
     console.log(inputVal);
 }
 
-function clearArrays(){
+function resetGraph(){
+    myChart.destroy();
     xlabels.length = 0;
     yTRxVals.length = 0;
     yNRxVals.length = 0;
