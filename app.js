@@ -2,17 +2,7 @@ const xlabels = [];
 const yTRxVals = [];
 const yNRxVals = [];
 
-const Nmonth1 = [];
-const Nmonth2 = [];
-const Nmonth3 = [];
-const Nmonth4 = [];
-const Nmonth5 = [];
-const Nmonth6 = [];
-
-
 var myChart;
-var drugName = [];
-var numPrescribers = 0;
 var defaultDisplay = 50;
 var currentIndex = defaultDisplay;
 
@@ -27,13 +17,6 @@ async function chartIt(numDisplay) {
         data: {
             labels: xlabels,
             datasets: [
-                {
-                    label: 'Prescriber\'s Aggregated TRx',
-                    data: Nmonth1,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)' ,
-                    borderWidth: 1
-                },
                 {
                     label: 'Prescriber\'s Aggregated TRx',
                     data: yTRxVals,
@@ -66,7 +49,6 @@ async function getData(numDisplay) {
     
     const table = data.split('\r\n').slice(1);
 
-    // # of different drugs at the moment
     var iterations = 0;
     
     table.forEach (row =>{  
@@ -91,11 +73,6 @@ async function getData(numDisplay) {
             TRxTotal += parseInt(columns[i]);
         }
         
-        //for the creation of 4 different charts
-        drugName.push(columns[4]);
-        var uniqueDrugs = new Set(drugName);
-        drugName = Array.from(uniqueDrugs);
-        
         yNRxVals.push(NRxTotal);
         yTRxVals.push(TRxTotal);
     });
@@ -106,15 +83,15 @@ function getInputValue(){
     var inputVal = document.getElementById("myInput").value;
     
     // Displaying the value
-    resetGraph();
-    chartIt(inputVal);
-    myChart.update();
-    console.log(inputVal);
-}
-
-function resetGraph(){
-    myChart.destroy();
+    destroyChart();
     xlabels.length = 0;
     yTRxVals.length = 0;
     yNRxVals.length = 0;
+    chartIt(inputVal);
+    myChart.update();
+}
+
+
+function destroyChart() {
+    myChart.destroy();
 }
