@@ -1,13 +1,19 @@
 const xlabels = [];
 const yTRxVals = [];
 const yNRxVals = [];
+var myChart;
+var drugName = [];
+var numPrescribers = 0;
+var defaultDisplay = 50;
+var currentIndex = defaultDisplay;
 
-chartIt();
+chartIt(defaultDisplay);
 
-async function chartIt() {
-    await getData();
+async function chartIt(numDisplay) {
+    await getData(numDisplay);
+    
     const ctx = document.getElementById('chart').getContext('2d');
-    const myChart = new Chart(ctx, {
+    myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: xlabels,
@@ -37,24 +43,28 @@ async function chartIt() {
         }
     });
 }
-async function getData() {
+
+async function getData(numDisplay) {
     const response = await fetch('Prescriber_Data.csv');
     const data = await response.text();
     
     const table = data.split('\r\n').slice(1);
     
-    // shorten is to make sure it doesnt run too many times
-    // the # of y-values is limited by shorten
-    var shorten = 0;
+    // # of different drugs at the moment
+    var iterations = 0;
     
     table.forEach (row =>{  
-        shorten++;
-        if(shorten >= 49)
-        return;
-        
+        // comment in to artifically shorten
+        iterations++;
+        if(iterations >= numDisplay)
+            return;
+
         const columns = row.split(',');
         const doctor = columns[1] + " " + columns[2];
         xlabels.push(doctor);
+
+        if(columns[1]=='undefined')
+            return;
         
         NRxTotal = 0;
         TRxTotal = 0;
@@ -65,8 +75,23 @@ async function getData() {
             TRxTotal += parseInt(columns[i]);
         }
         
+        //for the creation of 4 different charts
+        drugName.push(columns[4]);
+        var uniqueDrugs = new Set(drugName);
+        drugName = Array.from(uniqueDrugs);
+        console.log(drugName);
+        
         yNRxVals.push(NRxTotal);
         yTRxVals.push(TRxTotal);
-        console.log(doctor, TRxTotal, NRxTotal);
     });
+}
+
+function getInputValue(){
+    // Selecting the input element and get its value 
+    var inputVal = document.getElementById("myInput").value;
+    
+    // Displaying the value
+    myChart.clear();
+    chartIt(inputVal);
+    myChart.update();
 }
