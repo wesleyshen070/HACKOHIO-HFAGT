@@ -28,14 +28,6 @@ async function monthChartIt(fileNameVar) {
             ]
         },
         options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        min: 4000, // minimum value
-                    }
-                }]
-        
-            },
             plugins: {
                 legend: {
                     display: false,

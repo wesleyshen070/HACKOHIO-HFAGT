@@ -6,7 +6,14 @@ var myChart;
 var defaultDisplay = 50;
 var currentIndex = defaultDisplay;
 
+var topDoctorArray = [];
+var doctorState = [];
+var numTopDoctors = 10;
+var dict = new Object();
+
 chartIt(defaultDisplay);
+
+displayDoctors(numTopDoctors);
 
 async function chartIt(numDisplay) {
     await getData(numDisplay);
@@ -53,6 +60,7 @@ async function getData(numDisplay) {
     
     table.forEach (row =>{  
         currentIndex++;
+
         if(iterations >= numDisplay)
             return;
         iterations++;
@@ -60,6 +68,12 @@ async function getData(numDisplay) {
         const columns = row.split(',');
         const doctor = columns[1] + " " + columns[2];
         xlabels.push(doctor);
+
+        if(iterations <= numTopDoctors){
+            topDoctorArray.push(doctor);
+            doctorState.push(columns[3]);
+            console.log(topDoctorArray[iterations]);
+        }
 
         if(columns[1]=='undefined')
             return;
@@ -94,4 +108,16 @@ function getInputValue(){
 
 function destroyChart() {
     myChart.destroy();
+}
+
+function getDoctorInputValue() {
+    var inputVal = document.getElementById("myInput").value;
+
+    
+}
+
+function displayDoctors(numDoctors) {
+    for(let i = 0; i < numTopDoctors; i++){
+        console.log(topDoctorArray[i], doctorState[i]);
+    }
 }
